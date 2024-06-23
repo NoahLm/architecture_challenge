@@ -1,0 +1,11 @@
+infra/terraform.tfvars
+content/notes.txt
+infra/S3/terraform.tfvars
+infra/terraform.tfstate.backup
+infra/terraform.tfstate
+infra/.terraform.lock.hcl
+infra/.terraform
+webapp/my_venv
+webapp/queries/__pycache__/
+webapp/src/__pycache__/
+etl/queries.sql
