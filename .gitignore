@@ -9,3 +9,4 @@ webapp/my_venv
 webapp/queries/__pycache__/
 webapp/src/__pycache__/
 etl/queries.sql
+terraform.tfstate

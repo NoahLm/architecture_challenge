@@ -1,20 +1,25 @@
-from sqlalchemy import create_engine
 import pandas as pd
 import streamlit as st
+import redshift_connector
 
-# Database connection function
 def get_connection():
-    user = st.secrets["user"]
-    password = st.secrets["password"]
-    host = st.secrets["host"]
-    port = st.secrets["port"]
-    database = st.secrets["database"]
-    
-    conn_str = f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{database}"
-    engine = create_engine(conn_str)
-    return engine.connect()
+    conn = redshift_connector.connect(
+        host=st.secrets["host"],
+        database=st.secrets["database"],
+        user=st.secrets["user"],
+        password=st.secrets["password"],
+        port=int(st.secrets["port"])
+    )
+    return conn
 
 # Function to execute queries
 def run_query(query):
     conn = get_connection()
-    return pd.read_sql(query, conn)
+    cursor = conn.cursor()
+    cursor.execute(query)
+    result = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    # Convert the result to a pandas DataFrame
+    df = pd.DataFrame(result)
+    return df

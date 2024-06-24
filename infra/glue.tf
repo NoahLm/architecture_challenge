@@ -1,6 +1,6 @@
 # Glue Database
 resource "aws_glue_catalog_database" "glue_db" {
-  name = "noe-glue-db-banpay-challenge"
+  name = "noe-glue-db-by-challenge"
 }
 
 # Glue Crawler to catalog raw JSON data
