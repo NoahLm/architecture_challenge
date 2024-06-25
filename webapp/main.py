@@ -47,7 +47,11 @@ if option == "Saldos promedio":
         st.warning("Por favor, selecciona al menos una columna.")
 
 elif option == "Saldos en tránsito":
-    data = saldos_en_tránsito()
+    st.header("Saldos en tránsito")
+
+    start_date = st.date_input("Dia de Inicio", value=datetime(2023, 12, 25))
+    end_date = st.date_input("Dia Final", value=datetime(2023, 12, 31))
+    data = saldos_en_tránsito(start_date, end_date)
     data.columns = ['Fecha','Saldo_Flujos']
 
     st.write("Saldos en Tránsito")
