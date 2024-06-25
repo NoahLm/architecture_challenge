@@ -151,7 +151,7 @@ By transforming the original schema into a star schema, the data model is optimi
 4. Apply the Terraform configuration.
     ```terraform apply```
 
-5. After apply, services must be run in the following order. (Manually or automatically with extra configuration donde thorugh Terraform or the AWS Managment Console).
+5. After apply, services must be run in the following order. (Manually or automatically with extra configuration through Terraform or the AWS Managment Console).
     - Run raw_data crawler
     - Run ETL Job to create new processed data
     - Run date and transactions crawler
