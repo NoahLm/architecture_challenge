@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "processed_data" {
   bucket = "noe-processed-data-by-challenge"
 }
 
-# Upload files to the S3 buckets
+# Upload raw data and etl files to the S3 buckets
 resource "aws_s3_bucket_object" "raw_data_json" {
   bucket = aws_s3_bucket.raw_data.bucket
   key    = "raw/data.json"
@@ -54,7 +54,7 @@ resource "aws_s3_bucket_public_access_block" "processed_data_block" {
   restrict_public_buckets = true
 }
 
-# Enable versioning for the buckets
+# Enable versioning for the buckets, therefore files
 resource "aws_s3_bucket_versioning" "raw_data_versioning" {
   bucket = aws_s3_bucket.raw_data.id
   versioning_configuration {

@@ -1,4 +1,4 @@
-# Add a bucket policy to allow access for the IAM roles
+# Bucket policies to allow access for Glue Catalog and Crawlers
 resource "aws_s3_bucket_policy" "raw_data_policy" {
   bucket = aws_s3_bucket.raw_data.id
   policy = jsonencode({
@@ -64,6 +64,7 @@ resource "aws_s3_bucket_policy" "processed_data_policy" {
   })
 }
 
+# Crawl and glue policies to allow access to S3 and Glue Services 
 resource "aws_iam_role_policy" "glue_crawler_policy" {
   name = "glue-crawler-policy"
   role = aws_iam_role.glue_crawler_role.id
@@ -135,15 +136,16 @@ resource "aws_iam_role_policy" "glue_job_policy" {
         ],
         Resource = "*"
       },
-            {
-        Effect = "Allow",
-        Action = "iam:PassRole",
+      {
+        Effect   = "Allow",
+        Action   = "iam:PassRole",
         Resource = "*"
       }
     ]
   })
 }
 
+# Redshift Spectrum policies to allow access for S3, Glue Catalog, and Redshift Credentials
 resource "aws_iam_policy" "spectrum_policy" {
   name        = "spectrum_policy"
   description = "Policy to allow Redshift Spectrum and Glue access"

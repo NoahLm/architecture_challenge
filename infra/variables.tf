@@ -1,3 +1,4 @@
+# Declared sensible variables for usage in some resources
 variable "access_key" {
   description = "AWS secret key"
   type        = string

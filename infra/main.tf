@@ -1,3 +1,4 @@
+# Define the AWS provider and enable terraform access
 terraform {
   required_providers {
     aws = {
