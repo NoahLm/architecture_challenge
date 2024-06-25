@@ -170,8 +170,7 @@ resource "aws_iam_policy" "spectrum_policy" {
           "glue:GetTableVersions",
           "glue:CreateDatabase",
           "glue:CreateTable",
-          "glue:GetPartitions",
-          "glue:DeleteTable"
+          "glue:GetPartitions"
         ],
         Effect   = "Allow",
         Resource = "*"
