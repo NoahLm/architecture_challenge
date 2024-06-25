@@ -2,9 +2,9 @@ pandas==2.1.4
 redshift_connector==2.1.2
 numpy
 scikit-learn
-s3fs==2024.6.0
-st-files-connection
-boto3==1.26.0
 joblib==1.4.2
-botocore==1.29.0
-aiobotocore==2.13.1
+s3fs
+st-files-connection
+boto3
+botocore
+aiobotocore
