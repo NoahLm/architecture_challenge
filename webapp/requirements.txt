@@ -7,3 +7,4 @@ st-files-connection
 boto3==1.34.132
 joblib== 1.4.2
 botocore>=1.34.132,<1.35.0
+aiobotocore>=2.13.1
