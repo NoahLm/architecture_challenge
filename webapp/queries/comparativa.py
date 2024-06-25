@@ -1,7 +1,11 @@
-def comparativas_históricas():
-    query = """
-    SELECT fecha, saldo_inversion
+from src.connections import run_query
+
+def comparativas_históricas(start_date, end_date, columns):
+    columns_comps = ", ".join([f"{col}" for col in columns])
+    query = f"""
+    SELECT fecha, {columns_comps}
     FROM spectrum_schema.transactions
-    ORDER BY fecha LIMIT 15;
+    WHERE fecha IN ('{start_date}', '{end_date}')
+    ORDER BY fecha;
     """
-    return query
+    return run_query(query)

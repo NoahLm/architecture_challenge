@@ -68,3 +68,4 @@ resource "aws_iam_role_policy_attachment" "redshift_role_attachment" {
   role       = aws_iam_role.redshift_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonRedshiftFullAccess"
 }
+

@@ -1,8 +1,12 @@
-def saldos_promedio():
-    query = """
-    SELECT fecha, AVG(saldo_inversion) as avg_saldo_inversion, AVG(saldo_clientes) as avg_saldo_clientes
+from src.connections import run_query
+import streamlit as st
+
+def saldos_promedio(start_date, end_date, columns):
+    columns_avg = ", ".join([f"AVG({col}) as avg_{col}" for col in columns])
+    query = f"""
+    SELECT {columns_avg}
     FROM spectrum_schema.transactions
-    GROUP BY fecha
-    ORDER BY fecha LIMIT 15;
+    WHERE fecha BETWEEN '{start_date}' AND '{end_date}';
     """
-    return query
+
+    return run_query(query)
