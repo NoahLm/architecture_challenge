@@ -1,5 +1,4 @@
 infra/terraform.tfvars
-content/notes.txt
 infra/S3/terraform.tfvars
 infra/terraform.tfstate.backup
 infra/terraform.tfstate

@@ -2,7 +2,7 @@ from src.connections import run_query
 import streamlit as st
 
 def saldos_promedio(start_date, end_date, columns):
-    columns_avg = ", ".join([f"AVG({col}) as avg_{col}" for col in columns])
+    columns_avg = ", ".join([f"AVG({col}) as avg_{col}" for col in columns]) # Formats to SQL the selected columns for the query
     query = f"""
     SELECT {columns_avg}
     FROM spectrum_schema.transactions

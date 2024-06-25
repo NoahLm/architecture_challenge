@@ -5,6 +5,7 @@ import boto3
 import joblib
 import io
 
+# Definition to return the connection for Redshift Spectrum
 def get_connection():
     conn = redshift_connector.connect(
         host=st.secrets["host"],

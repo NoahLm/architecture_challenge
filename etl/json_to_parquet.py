@@ -10,9 +10,10 @@ def main():
     # The structure has an outer field 'rows' containing the data
     df = df.select(explode(spark_col("rows")).alias("row")).select("row.*")
 
+    # Defines Fecha as date format for schema
     df = df.withColumn("Fecha", to_date(df["Fecha"], "yyyy-MM-dd"))
 
-    # Transform to Facts and Dimensions
+    # Transform to Facts and Dimensions, splitting the original schema
     facts_df = df.select("Fecha", "Saldo_Inversion", "saldo_clientes", "num_ingresos_hoy", "num_egresos_hoy", "Saldo_Flujos")
 
     dims_df = df.select(
