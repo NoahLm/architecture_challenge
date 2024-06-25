@@ -8,4 +8,4 @@ st-files-connection
 boto3
 botocore
 aiobotocore
-matplolib==3.9.0
+matplotlib==3.9.0
